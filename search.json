@@ -11,7 +11,7 @@
     "href": "posts/hello-world/index.html",
     "title": "Hello World",
     "section": "",
-    "text": "print('Hello World!')\n\nHello World!\n\n\nThey say that the best person to learn from is someone that is only a few steps ahead of you in their own learning journey. I found Christian’s blog to be very helpful in this regard. In that post he also references Albert Rapp’s The ultimate guide to starting a Quarto blog. I’m sure I’ll follow up with lessons learned from this in time."
+    "text": "print('Hello World!')\n\nHello World!\n\n\nThey say that the best person to learn from is someone that is only a few steps ahead of you in their own learning journey…\nI found Christian’s blog to be very helpful in this regard. In that post he also references Albert Rapp’s The ultimate guide to starting a Quarto blog. I’m sure I’ll follow up with lessons learned from this in time."
   },
   {
     "objectID": "posts/welcome/index.html",
