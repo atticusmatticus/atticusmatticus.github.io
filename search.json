@@ -11,7 +11,7 @@
     "href": "posts/hello-world/index.html",
     "title": "Hello World",
     "section": "",
-    "text": "print('Hello World!')\n\nHello World!"
+    "text": "print('Hello World!')\n\nHello World!\n\n\nThey say that the best person to learn from is someone that is only a few steps ahead of you in their own learning journey. I found Christian’s blog to be very helpful in this regard. In that post he also references Albert Rapp’s The ultimate guide to starting a Quarto blog. I’m sure I’ll follow up with lessons learned from this in time."
   },
   {
     "objectID": "posts/welcome/index.html",
@@ -25,7 +25,7 @@
     "href": "index.html",
     "title": "atticusmatticus.github.io",
     "section": "",
-    "text": "Post With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nFeb 2, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHello World\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 2, 2023\n\n\nMax\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJan 30, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "text": "Post With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nFeb 2, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHello World\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 2, 2023\n\n\nMax Mattson\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJan 30, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
