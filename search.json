@@ -7,6 +7,13 @@
     "text": "print('Hello World!')\n\nHello World!\n\n\nThey say that the best person to learn from is someone that is only a few steps ahead of you in their own learning journey…\nIn the subject of blogging I found Christian’s blog to be very helpful. In that post he also references Albert Rapp’s The ultimate guide to starting a Quarto blog. I’m sure I’ll follow up with lessons learned from this in time."
   },
   {
+    "objectID": "posts/fastai-2020-part2-series.html",
+    "href": "posts/fastai-2020-part2-series.html",
+    "title": "Series: fastai-2020-part2",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
     "objectID": "archive.html",
     "href": "archive.html",
     "title": "Archive",
@@ -26,12 +33,5 @@
     "title": "About",
     "section": "",
     "text": "I am creating this blog mostly to record my notes and experiences along my path to becoming a proficient data scientist.\nMy background is in chemistry, physics, and math and I have a Ph.D. in theoretical physical chemistry. Because of this I enjoy understanding how systems function on a fundamental level, so there will undoubtably be some asides of that nature sprinkled throughout this blog."
-  },
-  {
-    "objectID": "fastai-2020-part2-series.html",
-    "href": "fastai-2020-part2-series.html",
-    "title": "Series: fastai-2020-part2",
-    "section": "",
-    "text": "No matching items"
   }
 ]
