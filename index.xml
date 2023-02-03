@@ -5,16 +5,16 @@
       xmlns:dc="http://purl.org/dc/elements/1.1/" 
       version="2.0">
 <channel>
-<title>Max Mattson</title>
-<link>atticusmatticus.github.io/index.html</link>
-<atom:link href="atticusmatticus.github.io/index.xml" rel="self" type="application/rss+xml"/>
+<title>atticusmatticus.github.io</title>
+<link>https://atticusmatticus.github.io/index.html</link>
+<atom:link href="https://atticusmatticus.github.io/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.2.335</generator>
 <lastBuildDate>Thu, 02 Feb 2023 06:00:00 GMT</lastBuildDate>
 <item>
   <title>Hello World</title>
   <dc:creator>Max Mattson</dc:creator>
-  <link>atticusmatticus.github.io/posts/hello-world/index.html</link>
+  <link>https://atticusmatticus.github.io/posts/hello-world/index.html</link>
   <description><![CDATA[ 
 
 
@@ -32,7 +32,7 @@
 
 
  ]]></description>
-  <guid>atticusmatticus.github.io/posts/hello-world/index.html</guid>
+  <guid>https://atticusmatticus.github.io/posts/hello-world/index.html</guid>
   <pubDate>Thu, 02 Feb 2023 06:00:00 GMT</pubDate>
 </item>
 </channel>
