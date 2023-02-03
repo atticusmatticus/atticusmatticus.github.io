@@ -16,15 +16,15 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "About",
-    "section": "",
-    "text": "I am creating this blog mostly to record my notes and experiences along my path to becoming a proficient data scientist.\nMy background is in chemistry, physics, and math and I have a Ph.D. in theoretical physical chemistry. Because of this I enjoy understanding how systems function on a fundamental level, so there will undoubtably be some asides of that nature sprinkled throughout this blog."
-  },
-  {
-    "objectID": "blog.html",
-    "href": "blog.html",
     "title": "atticusmatticus.github.io",
     "section": "",
     "text": "Post With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nFeb 2, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHello World\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 2, 2023\n\n\nMax Mattson\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "I am creating this blog mostly to record my notes and experiences along my path to becoming a proficient data scientist.\nMy background is in chemistry, physics, and math and I have a Ph.D. in theoretical physical chemistry. Because of this I enjoy understanding how systems function on a fundamental level, so there will undoubtably be some asides of that nature sprinkled throughout this blog."
   }
 ]
