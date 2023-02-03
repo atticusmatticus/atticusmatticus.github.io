@@ -2,22 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://atticusmatticus.github.io/posts/hello-world/index.html</loc>
-    <lastmod>2023-02-03T21:43:25.366Z</lastmod>
+    <lastmod>2023-02-03T21:45:12.402Z</lastmod>
+  </url>
+  <url>
+    <loc>https://atticusmatticus.github.io/posts/fastai-2020-part2-series.html</loc>
+    <lastmod>2023-02-03T21:45:12.709Z</lastmod>
   </url>
   <url>
     <loc>https://atticusmatticus.github.io/archive.html</loc>
-    <lastmod>2023-02-03T21:43:25.690Z</lastmod>
+    <lastmod>2023-02-03T21:45:13.007Z</lastmod>
   </url>
   <url>
     <loc>https://atticusmatticus.github.io/index.html</loc>
-    <lastmod>2023-02-03T21:43:25.996Z</lastmod>
+    <lastmod>2023-02-03T21:45:13.308Z</lastmod>
   </url>
   <url>
     <loc>https://atticusmatticus.github.io/about.html</loc>
-    <lastmod>2023-02-03T21:43:26.291Z</lastmod>
-  </url>
-  <url>
-    <loc>https://atticusmatticus.github.io/fastai-2020-part2-series.html</loc>
-    <lastmod>2023-02-03T21:43:26.568Z</lastmod>
+    <lastmod>2023-02-03T21:45:13.581Z</lastmod>
   </url>
 </urlset>
