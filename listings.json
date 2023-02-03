@@ -1,8 +1,18 @@
 [
   {
+    "listing": "/archive.html",
+    "items": [
+      "/posts/hello-world/index.html"
+    ]
+  },
+  {
     "listing": "/index.html",
     "items": [
       "/posts/hello-world/index.html"
     ]
+  },
+  {
+    "listing": "/fastai-2020-part2-series.html",
+    "items": []
   }
 ]

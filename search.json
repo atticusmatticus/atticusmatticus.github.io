@@ -1,12 +1,5 @@
 [
   {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "This is a post with executable code."
-  },
-  {
     "objectID": "posts/hello-world/index.html",
     "href": "posts/hello-world/index.html",
     "title": "Hello World",
@@ -14,11 +7,18 @@
     "text": "print('Hello World!')\n\nHello World!\n\n\nThey say that the best person to learn from is someone that is only a few steps ahead of you in their own learning journey…\nIn the subject of blogging I found Christian’s blog to be very helpful. In that post he also references Albert Rapp’s The ultimate guide to starting a Quarto blog. I’m sure I’ll follow up with lessons learned from this in time."
   },
   {
+    "objectID": "archive.html",
+    "href": "archive.html",
+    "title": "Archive",
+    "section": "",
+    "text": "Hello World\n\n\n\n\n\n\n\n\n\nFeb 2, 2023\n\n\n\n\n\n\nNo matching items"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "atticusmatticus.github.io",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nHello World\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 2, 2023\n\n\n0 min\n\n\n\n\n\n\nNo matching items"
+    "text": "This series follows my journey through the fastai part 2 lessons."
   },
   {
     "objectID": "about.html",
@@ -26,5 +26,12 @@
     "title": "About",
     "section": "",
     "text": "I am creating this blog mostly to record my notes and experiences along my path to becoming a proficient data scientist.\nMy background is in chemistry, physics, and math and I have a Ph.D. in theoretical physical chemistry. Because of this I enjoy understanding how systems function on a fundamental level, so there will undoubtably be some asides of that nature sprinkled throughout this blog."
+  },
+  {
+    "objectID": "fastai-2020-part2-series.html",
+    "href": "fastai-2020-part2-series.html",
+    "title": "Series: fastai-2020-part2",
+    "section": "",
+    "text": "No matching items"
   }
 ]
