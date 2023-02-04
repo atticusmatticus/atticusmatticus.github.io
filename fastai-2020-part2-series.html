@@ -70,9 +70,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: [{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: [],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -159,7 +159,31 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1675404000000" data-listing-file-modified-sort="1675529164709" data-listing-reading-time-sort="0.255">
+<div class="body">
+<a href="./posts/fastai-2020-part2/lesson_00/index.html">
+<h3 class="no-anchor listing-title">
+Lesson 00: Exports and Using Jupyter Notebooks as a Development Environment
+</h3>
+<div class="listing-subtitle">
 
+</div>
+<div class="listing-description">
+<p>Hardly a lesson… more of an introduction to the exporting mechanism.</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/fastai-2020-part2/lesson_00/index.html">
+<div class="listing-date">
+Feb 3, 2023
+</div>
+<div class="listing-author">
+Max Mattson
+</div>
+</a>
+</div>
+</div>
 </div>
 <div class="listing-no-matching d-none">
 No matching items
