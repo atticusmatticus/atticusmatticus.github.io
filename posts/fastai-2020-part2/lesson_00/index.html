@@ -202,9 +202,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#export" id="toc-export" class="nav-link active" data-scroll-target="#export">Export</a>
+  <li><a href="#exports" id="toc-exports" class="nav-link active" data-scroll-target="#exports">Exports</a>
   <ul class="collapse">
   <li><a href="#how-it-works" id="toc-how-it-works" class="nav-link" data-scroll-target="#how-it-works">How it works:</a></li>
+  <li><a href="#notebook2script" id="toc-notebook2script" class="nav-link" data-scroll-target="#notebook2script"><code>notebook2script</code></a></li>
   </ul></li>
   </ul>
 </nav>
@@ -215,13 +216,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
+<section id="exports" class="level1">
+<h1>Exports</h1>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#export</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>TEST <span class="op">=</span> <span class="st">'test'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="export" class="level2">
-<h2 class="anchored" data-anchor-id="export">Export</h2>
-<p>Save the notebook here before running the next cell.</p>
+<p>This is a test variable that will be available in our <code>./exports/</code> directory as <code>./exports/00_exports.ipynb</code></p>
+<hr>
+<p>Save the notebook here before running the next cell. Saving here writes the cells that have been run in this current session to file rather than a temporary file so that our <code>notebook2script.py</code> code can access all the <code>#export</code> cells that we want it to.</p>
 <div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># !python notebook2script.py 00_exports.ipynb</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>run notebook2script.py <span class="dv">00</span><span class="er">_exports</span>.ipynb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -232,19 +235,56 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="how-it-works" class="level3">
 <h3 class="anchored" data-anchor-id="how-it-works">How it works:</h3>
 <p>Cells with the first line of the cell as: “<code>#export</code>” will be picked up by the <code>notebook2script.py</code> script and turned into a repository of <em>exported</em> or saved code that can be loaded and thus persist across the project development environment.</p>
-<div class="cell" data-execution_count="3">
+<p>Jupyter notebooks are just json files where each cell is an entry in a list called <code>'cells'</code>. As seen below, each cell has a number of attributes: <code>cell_type</code>, <code>execution_unit</code>, <code>metadata</code>, <code>outputs</code>, and <code>source</code>. The <code>notebook2script.py</code> script just finds all the cells that have <code>#export</code> as the first line in the cell and then it exports the rest of the code in those cells to a respective file in our <code>exports/</code> directory.</p>
+<div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> json.load(<span class="bu">open</span>(<span class="st">'00_exports.ipynb'</span>, <span class="st">'r'</span>))[<span class="st">'cells'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>d[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> json.load(<span class="bu">open</span>(<span class="st">'00_exports.ipynb'</span>, <span class="st">'r'</span>))[<span class="st">'cells'</span>]</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>d[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>{'cell_type': 'code',
  'execution_count': 1,
  'metadata': {},
  'outputs': [],
  'source': ['#export\n', "TEST = 'test'"]}</code></pre>
 </div>
+</div>
+</section>
+<section id="notebook2script" class="level2">
+<h2 class="anchored" data-anchor-id="notebook2script"><code>notebook2script</code></h2>
+<p>The following is the <code>notebook2script</code> code in its entirety.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json, fire, re</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> is_export(cell):</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> cell[<span class="st">'cell_type'</span>] <span class="op">!=</span> <span class="st">'code'</span>:</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    src <span class="op">=</span> cell[<span class="st">'source'</span>]</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(src) <span class="op">==</span> <span class="dv">0</span> <span class="kw">or</span> <span class="bu">len</span>(src[<span class="dv">0</span>]) <span class="op">&lt;</span> <span class="dv">7</span>:</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># import pdb; pdb.set_trace()</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> re.match(pattern<span class="op">=</span><span class="vs">r'^\s*#\s*export\s*$'</span>, string<span class="op">=</span>src[<span class="dv">0</span>], flags<span class="op">=</span>re.IGNORECASE) <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> notebook2script(fname):</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    fname <span class="op">=</span> Path(fname)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    fname_out <span class="op">=</span> <span class="ss">f'nb_</span><span class="sc">{</span>fname<span class="sc">.</span>stem<span class="sc">.</span>split(<span class="st">"_"</span>)[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">.py'</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    main_dic <span class="op">=</span> json.load(<span class="bu">open</span>(fname, <span class="st">'r'</span>))</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    code_cells <span class="op">=</span> [c <span class="cf">for</span> c <span class="kw">in</span> main_dic[<span class="st">'cells'</span>] <span class="cf">if</span> is_export(c)]</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    module <span class="op">=</span> <span class="ss">f'''</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="ss">#################################################</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="ss">### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="ss">#################################################</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="ss"># file to edit: dev_nb/</span><span class="sc">{</span>fname<span class="sc">.</span>name<span class="sc">}</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="ss">'''</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> cell <span class="kw">in</span> code_cells:</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>        module <span class="op">+=</span> <span class="st">''</span>.join(cell[<span class="st">'source'</span>][<span class="dv">1</span>:]) <span class="op">+</span> <span class="st">'</span><span class="ch">\n\n</span><span class="st">'</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># remove trailing spaces</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    module <span class="op">=</span> re.sub(pattern<span class="op">=</span><span class="vs">r' +$'</span>, repl<span class="op">=</span><span class="st">''</span>, string<span class="op">=</span>module, flags<span class="op">=</span>re.MULTILINE)</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    <span class="bu">open</span>(fname.parent<span class="op">/</span><span class="st">'exports'</span><span class="op">/</span>fname_out, <span class="st">'w'</span>).write(module[:<span class="op">-</span><span class="dv">2</span>])</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Converted </span><span class="sc">{</span>fname<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>fname_out<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>    fire.Fire(notebook2script)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
