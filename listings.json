@@ -1,7 +1,14 @@
 [
   {
+    "listing": "/posts/fastai-2020-part2/lesson_00/index.html",
+    "items": [
+      "/posts/fastai-2020-part2/lesson_00/01_matmul.html"
+    ]
+  },
+  {
     "listing": "/index.html",
     "items": [
+      "/posts/fastai-2020-part2/lesson_00/01_matmul.html",
       "/posts/fastai-2020-part2/lesson_01/index.html",
       "/posts/fastai-2020-part2/lesson_00/index.html",
       "/posts/hello-world/index.html"
@@ -10,6 +17,7 @@
   {
     "listing": "/fastai-2020-part2-series.html",
     "items": [
+      "/posts/fastai-2020-part2/lesson_00/01_matmul.html",
       "/posts/fastai-2020-part2/lesson_01/index.html",
       "/posts/fastai-2020-part2/lesson_00/index.html"
     ]
