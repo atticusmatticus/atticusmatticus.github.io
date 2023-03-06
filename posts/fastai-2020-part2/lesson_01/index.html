@@ -245,7 +245,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> cname <span class="kw">is</span> <span class="va">None</span>: cname <span class="op">=</span> <span class="bu">cmp</span>.<span class="va">__name__</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">cmp</span>(a,b), <span class="ss">f'</span><span class="sc">{</span>cname<span class="sc">}</span><span class="ss">:</span><span class="ch">\n</span><span class="sc">{</span>a<span class="sc">}</span><span class="ch">\n</span><span class="sc">{</span>b<span class="sc">}</span><span class="ss">'</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_eq(a, b): test(a, b, operator.eq, <span class="st">'=='</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_eq(a, b): test(a, b, operator.eq, cname<span class="op">=</span><span class="st">'=='</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>test_eq(TEST, <span class="st">'test'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -277,7 +277,7 @@ from torch import tensor
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> untar_data(url<span class="op">=</span>URLs.MNIST)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>path</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
-<pre><code>Path('/home/xar/.fastai/data/mnist_png')</code></pre>
+<pre><code>Path('/Users/xar/.fastai/data/mnist_png')</code></pre>
 </div>
 </div>
 <p>Our data is split into training and testing directories.</p>
@@ -285,8 +285,8 @@ from torch import tensor
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> d <span class="kw">in</span> os.listdir(path):</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>testing
-training</code></pre>
+<pre><code>training
+testing</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="7">
@@ -367,7 +367,7 @@ y_valid.shape: torch.Size([10000])</code></pre>
 <div class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(img.view(<span class="dv">28</span>,<span class="dv">28</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
-<pre><code>&lt;matplotlib.image.AxesImage at 0x7f3e760fcf70&gt;</code></pre>
+<pre><code>&lt;matplotlib.image.AxesImage at 0x12df5b160&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="index_files/figure-html/cell-16-output-2.png" class="img-fluid"></p>
@@ -406,7 +406,7 @@ y_valid.shape: torch.Size([10000])</code></pre>
 <div class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>time1 <span class="op">=</span> <span class="op">%</span>timeit <span class="op">-</span>n <span class="dv">5</span> <span class="op">-</span>o _<span class="op">=</span>matmul(m1, m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>463 ms ± 809 µs per loop (mean ± std. dev. of 7 runs, 5 loops each)</code></pre>
+<pre><code>328 ms ± 1.78 ms per loop (mean ± std. dev. of 7 runs, 5 loops each)</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="20">
@@ -447,9 +447,13 @@ y_valid.shape: torch.Size([10000])</code></pre>
 </div>
 </div>
 <p>We can do element-wise operations on rank-2 tensors (matrix) too. Let’s do a Frobenius norm as practice.</p>
-<p><strong>Frobenius norm:</strong> $ <span class="math display">\[\begin{equation}
+<p><strong>Frobenius norm:</strong> <span class="math display">\[
+\begin{equation}
     \lvert\lvert A \rvert\rvert_F = \left( \sum_{i,j=1}^N \lvert a_{ij} \rvert^2 \right)^{1/2}
-\end{equation}\]</span> $</p>
+\end{equation}
+\]</span></p>
+<p>We can do element-wise operations on rank-2 tensors (matrix) too. Let’s do a Frobenius norm as practice.</p>
+<p><strong>Frobenius norm:</strong> $ A <em>F = ( </em>{i,j=1}^N a_{ij} ^2 )^{1/2} $</p>
 <div class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> frobenius_norm(m):</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (m<span class="op">*</span>m).<span class="bu">sum</span>().sqrt()</span>
@@ -476,13 +480,13 @@ y_valid.shape: torch.Size([10000])</code></pre>
 <div class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>time2 <span class="op">=</span> <span class="op">%</span>timeit <span class="op">-</span>n <span class="dv">100</span> <span class="op">-</span>o _<span class="op">=</span>matmul(m1, m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>689 µs ± 29.5 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)</code></pre>
+<pre><code>411 µs ± 6.38 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'A speed up from full-loop matmul of: </span><span class="sc">{</span>time1<span class="sc">.</span>average<span class="op">/</span>time2<span class="sc">.</span>average<span class="sc">:.3e}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>A speed up from full-loop matmul of: 6.730e+02</code></pre>
+<pre><code>A speed up from full-loop matmul of: 7.989e+02</code></pre>
 </div>
 </div>
 <p>Now lets test that the results of both methods are the same, (or very close since float calculations are slightly different depending on how they’re done).</p>
@@ -560,12 +564,16 @@ y_valid.shape: torch.Size([10000])</code></pre>
 </div>
 </div>
 <p>We can see what a tensor will look like expanded as the shape of another tensor:</p>
-<div class="cell" data-execution_count="39">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>c</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="39">
-<pre><code>tensor([10., 20., 30.])</code></pre>
+<div class="cell" data-execution_count="73">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>c, m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="73">
+<pre><code>(tensor([10., 20., 30.]),
+ tensor([[1., 2., 3.],
+         [4., 5., 6.],
+         [7., 8., 9.]]))</code></pre>
 </div>
 </div>
+<p>by using the <code>.expand_as()</code> method,</p>
 <div class="cell" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>c_exp <span class="op">=</span> c.expand_as(m)</span>
 <span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>c_exp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -718,13 +726,13 @@ After sum:   torch.Size([10])</code></pre>
 <div class="cell" data-execution_count="57">
 <div class="sourceCode cell-code" id="cb99"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a>time3 <span class="op">=</span> <span class="op">%</span>timeit <span class="op">-</span>n <span class="dv">1000</span> <span class="op">-</span>o _<span class="op">=</span>matmul(m1, m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>85.3 µs ± 6.12 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)</code></pre>
+<pre><code>49.1 µs ± 374 ns per loop (mean ± std. dev. of 7 runs, 1,000 loops each)</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="58">
 <div class="sourceCode cell-code" id="cb101"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'A speed up from full-loop matmul by a factor of: </span><span class="sc">{</span>time1<span class="sc">.</span>average<span class="op">/</span>time3<span class="sc">.</span>average<span class="sc">:.3e}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>A speed up from full-loop matmul by a factor of: 5.431e+03</code></pre>
+<pre><code>A speed up from full-loop matmul by a factor of: 6.681e+03</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="59">
@@ -763,7 +771,7 @@ Result (3d array): 256 x 256 x 3</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="63">
-<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a>c[<span class="va">None</span>,:] <span class="op">*</span> c[:,<span class="va">None</span>] <span class="co"># element-wise multiplication </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a>c[<span class="va">None</span>,:] <span class="op">*</span> c[:,<span class="va">None</span>] <span class="co"># element-wise multiplication of broadcasted arrays</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="63">
 <pre><code>tensor([[100., 200., 300.],
         [200., 400., 600.],
@@ -771,7 +779,7 @@ Result (3d array): 256 x 256 x 3</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="64">
-<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a>c[:,<span class="va">None</span>] <span class="op">*</span> c[<span class="va">None</span>,:] <span class="co"># element-wise multiplication </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a>c[:,<span class="va">None</span>] <span class="op">*</span> c[<span class="va">None</span>,:] <span class="co"># element-wise multiplication of broadcasted arrays</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="64">
 <pre><code>tensor([[100., 200., 300.],
         [200., 400., 600.],
@@ -784,26 +792,25 @@ Result (3d array): 256 x 256 x 3</code></pre>
 <section id="einstein-summation" class="level4">
 <h4 class="anchored" data-anchor-id="einstein-summation">Einstein Summation</h4>
 <p>Einstein summation (<code>einsum</code>) is a compact representation for combining products and sums in a general way. From the numpy docs: &gt; The subscripts string is a comma-separated list of subscript labels, where each label refers to a dimension of the corresponding operand. Whenever a label is repeated it is summed, so <code>np.einsum('i,i', a, b)</code> is equivalent to <code>p.inner(a, b)</code>. If a label appears only once, it is not summed, so <code>np.einsum('i', a)</code> produces a view of a with no changes.</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a>c[i,j] <span class="op">+=</span> a[i,k] <span class="op">*</span> b[k,j]             <span class="co"># first matmul </span></span>
+<span id="cb115-2"><a href="#cb115-2" aria-hidden="true" tabindex="-1"></a>c[i,j] <span class="op">=</span> (a[i,:] <span class="op">*</span> b[:,j]).<span class="bu">sum</span>()      <span class="co"># second matmul</span></span>
+<span id="cb115-3"><a href="#cb115-3" aria-hidden="true" tabindex="-1"></a> [i,j] <span class="op">&lt;-</span>  [i,k] <span class="op">*</span>  [k,j]</span>
+<span id="cb115-4"><a href="#cb115-4" aria-hidden="true" tabindex="-1"></a>           [i,k] <span class="op">*</span>  [k,j] <span class="op">-&gt;</span> [i,j]</span>
+<span id="cb115-5"><a href="#cb115-5" aria-hidden="true" tabindex="-1"></a>            i k  ,   k j  <span class="op">-&gt;</span>  i j </span>
+<span id="cb115-6"><a href="#cb115-6" aria-hidden="true" tabindex="-1"></a>            ik,kj <span class="op">-&gt;</span> ij</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-execution_count="65">
-<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="co"># c[i,j] += a[i,k] * b[k,j]             # first matmul </span></span>
-<span id="cb115-2"><a href="#cb115-2" aria-hidden="true" tabindex="-1"></a><span class="co"># c[i,j] = (a[i,:] * b[:,j]).sum()      # second matmul</span></span>
-<span id="cb115-3"><a href="#cb115-3" aria-hidden="true" tabindex="-1"></a><span class="co">#  [i,j] &lt;-  [i,k] *  [k,j]</span></span>
-<span id="cb115-4"><a href="#cb115-4" aria-hidden="true" tabindex="-1"></a><span class="co">#            [i,k] *  [k,j] -&gt; [i,j]</span></span>
-<span id="cb115-5"><a href="#cb115-5" aria-hidden="true" tabindex="-1"></a><span class="co">#             i k  ,   k j  -&gt;  i j </span></span>
-<span id="cb115-6"><a href="#cb115-6" aria-hidden="true" tabindex="-1"></a><span class="co">#             ik,kj -&gt; ij</span></span>
-<span id="cb115-7"><a href="#cb115-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb115-8"><a href="#cb115-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> matmul(a, b): <span class="cf">return</span> torch.einsum(<span class="st">'ik,kj-&gt;ij'</span>, a, b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> matmul(a, b): <span class="cf">return</span> torch.einsum(<span class="st">'ik,kj-&gt;ij'</span>, a, b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="66">
-<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a>time4 <span class="op">=</span> <span class="op">%</span>timeit <span class="op">-</span>n <span class="dv">1000</span> <span class="op">-</span>o _<span class="op">=</span>matmul(m1, m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a>time4 <span class="op">=</span> <span class="op">%</span>timeit <span class="op">-</span>n <span class="dv">1000</span> <span class="op">-</span>o _<span class="op">=</span>matmul(m1, m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>21.3 µs ± 4.58 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)</code></pre>
+<pre><code>17.9 µs ± 176 ns per loop (mean ± std. dev. of 7 runs, 1,000 loops each)</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="67">
-<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'A speed up from full-loop matmul by a factor of: </span><span class="sc">{</span>time1<span class="sc">.</span>average<span class="op">/</span>time4<span class="sc">.</span>average<span class="sc">:.3e}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'A speed up from full-loop matmul by a factor of: </span><span class="sc">{</span>time1<span class="sc">.</span>average<span class="op">/</span>time4<span class="sc">.</span>average<span class="sc">:.3e}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>A speed up from full-loop matmul by a factor of: 2.176e+04</code></pre>
+<pre><code>A speed up from full-loop matmul by a factor of: 1.832e+04</code></pre>
 </div>
 </div>
 <p><code>einsum</code> can be used for lot’s of different things like transposing and other operations even if they don’t include matrix multiplication.</p>
@@ -813,28 +820,28 @@ Result (3d array): 256 x 256 x 3</code></pre>
 <section id="pytorch-matmul" class="level4">
 <h4 class="anchored" data-anchor-id="pytorch-matmul">PyTorch Matmul</h4>
 <div class="cell" data-execution_count="68">
-<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a>time5 <span class="op">=</span> <span class="op">%</span>timeit <span class="op">-</span>n <span class="dv">1000</span> <span class="op">-</span>o _<span class="op">=</span>m1.matmul(m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb122"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a>time5 <span class="op">=</span> <span class="op">%</span>timeit <span class="op">-</span>n <span class="dv">1000</span> <span class="op">-</span>o _<span class="op">=</span>m1.matmul(m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>7.79 µs ± 1.28 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)</code></pre>
+<pre><code>3.31 µs ± 97.8 ns per loop (mean ± std. dev. of 7 runs, 1,000 loops each)</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="69">
-<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'A speed up from full-loop matmul by a factor of: </span><span class="sc">{</span>time1<span class="sc">.</span>average<span class="op">/</span>time5<span class="sc">.</span>average<span class="sc">:.3e}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb124"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'A speed up from full-loop matmul by a factor of: </span><span class="sc">{</span>time1<span class="sc">.</span>average<span class="op">/</span>time5<span class="sc">.</span>average<span class="sc">:.3e}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>A speed up from full-loop matmul by a factor of: 5.945e+04</code></pre>
+<pre><code>A speed up from full-loop matmul by a factor of: 9.897e+04</code></pre>
 </div>
 </div>
 <p>Matrix multiplication is so common and useful that it has it’s own symbol in PyTorch, <code>@</code>. So the following cell calls the exact same code as <code>m1.matmul(m2)</code>.</p>
 <div class="cell" data-execution_count="70">
-<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb125-1"><a href="#cb125-1" aria-hidden="true" tabindex="-1"></a>time6 <span class="op">=</span> <span class="op">%</span>timeit <span class="op">-</span>n <span class="dv">1000</span> <span class="op">-</span>o t2 <span class="op">=</span> m1 <span class="op">@</span> m2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb126"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb126-1"><a href="#cb126-1" aria-hidden="true" tabindex="-1"></a>time6 <span class="op">=</span> <span class="op">%</span>timeit <span class="op">-</span>n <span class="dv">1000</span> <span class="op">-</span>o t2 <span class="op">=</span> m1 <span class="op">@</span> m2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>7.15 µs ± 1.29 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)</code></pre>
+<pre><code>3.39 µs ± 122 ns per loop (mean ± std. dev. of 7 runs, 1,000 loops each)</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="71">
-<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'A speed up from full-loop matmul by a factor of: </span><span class="sc">{</span>time1<span class="sc">.</span>average<span class="op">/</span>time6<span class="sc">.</span>average<span class="sc">:.3e}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb128"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb128-1"><a href="#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'A speed up from full-loop matmul by a factor of: </span><span class="sc">{</span>time1<span class="sc">.</span>average<span class="op">/</span>time6<span class="sc">.</span>average<span class="sc">:.3e}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>A speed up from full-loop matmul by a factor of: 6.477e+04</code></pre>
+<pre><code>A speed up from full-loop matmul by a factor of: 9.683e+04</code></pre>
 </div>
 </div>
 </section>
@@ -844,7 +851,7 @@ Result (3d array): 256 x 256 x 3</code></pre>
 <h2 class="anchored" data-anchor-id="export">Export</h2>
 <p>Save the notebook here before running the next cell.</p>
 <div class="cell" data-execution_count="72">
-<div class="sourceCode cell-code" id="cb129"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb129-1"><a href="#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>run notebook2script.py <span class="dv">0</span><span class="er">1_matmul</span>.ipynb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>run notebook2script.py <span class="dv">0</span><span class="er">1_matmul</span>.ipynb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Converted 01_matmul.ipynb to nb_01.py</code></pre>
 </div>
